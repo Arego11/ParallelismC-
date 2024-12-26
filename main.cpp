@@ -22,18 +22,19 @@ int main() {
     pthread_t threads[NUM_THREADS];
     Args per_thread_args[NUM_THREADS];
 
+    pthread_mutex_init(&mtx, NULL); // Initialize mutex
+
     //this makes 10 threads
     for(int i = 0; i < NUM_THREADS; i++){
         per_thread_args[i].tid = i;
         per_thread_args[i].data = i * i;
 
+        pthread_create(&threads[i], NULL, thread_function, (void *)&per_thread_args[i]);
         //1 -> pointer to pthread_t, 2 -> attributes for the thread, 3 -> entry routine, 4 -> Arguments.
-        pthread_create(&threads[i], NULL, thread_function, (void*)&per_thread_args[i]);
+        pthread_join(threads[i], NULL); // Wait for thread to finish before creating the next one
     }
 
-    void *ret;
-    for(int i = 0; i < NUM_THREADS; i++){
-        pthread_join(threads[i], &ret);
-    }
+    pthread_mutex_destroy(&mtx); // Destroy mutex
+
     return 0;
 }
