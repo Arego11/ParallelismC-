@@ -1,0 +1,3 @@
+/Users/liner/Documents/cpp training/ParallelismC++/cmake-build-debug/CMakeFiles/ParallelismC__.dir
+/Users/liner/Documents/cpp training/ParallelismC++/cmake-build-debug/CMakeFiles/edit_cache.dir
+/Users/liner/Documents/cpp training/ParallelismC++/cmake-build-debug/CMakeFiles/rebuild_cache.dir
